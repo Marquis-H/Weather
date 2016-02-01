@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1509" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
@@ -151,7 +151,7 @@
                                 <color key="textColor" red="0.49803921579999999" green="0.49803921579999999" blue="0.49803921579999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.10" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a3k-aE-PNP" userLabel="Rain Amount">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.10" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a3k-aE-PNP" userLabel="PM Amount">
                                 <rect key="frame" x="189" y="338" width="24" height="15"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="12"/>
                                 <color key="textColor" red="0.49803921579999999" green="0.49803921579999999" blue="0.49803921579999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -407,6 +407,46 @@
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="dayCurrentTemperatureHigh" destination="c2w-w2-HVo" id="GI0-Bt-7g3"/>
+                        <outlet property="dayCurrentTemperatureHighLabel" destination="Jw8-Yj-yv3" id="Y48-hb-h4H"/>
+                        <outlet property="dayCurrentTemperatureLow" destination="ckQ-DG-PFI" id="6Y9-II-8IC"/>
+                        <outlet property="dayCurrentTemperatureLowLabel" destination="Lv0-41-e1K" id="U4Z-bt-nXE"/>
+                        <outlet property="dayFiveLowHigh" destination="jz2-Av-WPs" id="rzE-Le-grv"/>
+                        <outlet property="dayFiveWeekDayImage" destination="Bvh-x7-mKi" id="Xno-2l-Y5t"/>
+                        <outlet property="dayFiveWeekDayLabel" destination="9Sg-Kp-gdB" id="G3J-qL-yzN"/>
+                        <outlet property="dayFourLowHigh" destination="pLK-Dy-4w0" id="91e-xI-i3g"/>
+                        <outlet property="dayFourWeekDayImage" destination="A21-Jx-e87" id="ZPP-GQ-vFU"/>
+                        <outlet property="dayFourWeekDayLabel" destination="fXt-mV-wUr" id="unT-0N-Aeh"/>
+                        <outlet property="dayOneLowHigh" destination="mZu-X1-814" id="3fq-je-SKP"/>
+                        <outlet property="dayOneWeekDayImage" destination="6sY-Yj-iHD" id="rGO-zM-gj3"/>
+                        <outlet property="dayOneWeekDayLabel" destination="2pE-wo-YAS" id="sUQ-5Z-LJe"/>
+                        <outlet property="daySixLowHigh" destination="BF6-km-3H8" id="UqU-Rn-9UD"/>
+                        <outlet property="daySixWeekDayImage" destination="bRD-MH-kbD" id="Xer-Ba-PLP"/>
+                        <outlet property="daySixWeekDayLabel" destination="dr1-zv-ukc" id="yXG-Dc-MH2"/>
+                        <outlet property="dayThreeLowHigh" destination="xUn-65-eMI" id="Uim-qt-3M3"/>
+                        <outlet property="dayThreeWeekDayImage" destination="owv-RQ-151" id="YRo-A4-KHZ"/>
+                        <outlet property="dayThreeWeekDayLabel" destination="riu-hU-2rQ" id="EuS-e7-IeC"/>
+                        <outlet property="dayTwoLowHigh" destination="G2M-DK-tKP" id="UIf-5W-ZQ5"/>
+                        <outlet property="dayTwoWeekDayImage" destination="ZU9-CO-BAz" id="Fuy-rq-RCx"/>
+                        <outlet property="dayTwoWeekDayLabel" destination="j8g-4v-enT" id="9yn-3R-cXX"/>
+                        <outlet property="degreeBtn" destination="Q5n-8p-Fqf" id="3MF-b4-ZWw"/>
+                        <outlet property="heatIndex" destination="gjL-iq-BVr" id="rlE-3X-GeQ"/>
+                        <outlet property="humidity" destination="mCO-IO-p8z" id="9bf-my-c2y"/>
+                        <outlet property="humidityAmount" destination="y4G-ap-Cpe" id="Y46-aF-uY4"/>
+                        <outlet property="humidityUILabel" destination="9IO-VM-8FU" id="K1s-O9-3yQ"/>
+                        <outlet property="iconView" destination="ODz-dm-HiV" id="htp-CY-yk5"/>
+                        <outlet property="pmAmount" destination="a3k-aE-PNP" id="EOK-ke-vZ4"/>
+                        <outlet property="pmUILabel" destination="DuX-7r-oLA" id="PX3-4G-UY2"/>
+                        <outlet property="summaryLabel" destination="JJs-OL-PD9" id="aDV-WV-sDR"/>
+                        <outlet property="swipeView" destination="Zmz-HZ-9kl" id="kA7-7e-oaL"/>
+                        <outlet property="temperatureLabel" destination="X2s-UJ-7Pz" id="j5U-ys-L8i"/>
+                        <outlet property="umbrella" destination="ZEE-4H-H7g" id="8wt-z4-9N4"/>
+                        <outlet property="userLocationLabel" destination="tl1-IP-dCB" id="pye-nB-WMv"/>
+                        <outlet property="wAlerts" destination="Fg6-uY-vKt" id="OuN-bS-0ud"/>
+                        <outlet property="windBag" destination="d59-36-ib0" id="5uC-tB-f19"/>
+                        <outlet property="windSpeedLabel" destination="Gcv-Ie-6dh" id="eL2-lW-9gy"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
