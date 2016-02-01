@@ -8,6 +8,6 @@
 
 import Foundation
 
-let weatherApi      = "http://api.avatardata.cn/Weather/Query"
-
 let weatherAppKey   = "fa0610569ed04009ae233f48e80bcbf4"
+
+let weatherApi      = "http://api.avatardata.cn/Weather/Query?key=\(weatherAppKey)&cityname="

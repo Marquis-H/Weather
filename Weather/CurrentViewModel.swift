@@ -13,7 +13,7 @@ public class CurrentViewModel {
     weak var delegate: CurrentViewDelegate?
     var current : Current?
     //Mark: - Initialization
-    init(delegate: CurrentViewDelegate){
+    init(delegate: CurrentViewDelegate, weatherDictionary: NSDictionary){
         self.delegate = delegate
     }
     
