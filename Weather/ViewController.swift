@@ -33,6 +33,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var dayCurrentTemperatureLowLabel: UILabel!
     @IBOutlet weak var dayCurrentTemperatureHighLabel: UILabel!
     
+    
     @IBOutlet weak var windUILabel: UILabel!
     @IBOutlet weak var pmUILabel: UILabel!
     @IBOutlet weak var humidityUILabel: UILabel!
@@ -68,26 +69,38 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     //@IBOutlet Alerts
     @IBOutlet weak var wAlerts: UILabel!
     
-    let swipeRec = UISwipeGestureRecognizer()
     var audioPlayer = AVAudioPlayer()
     var userTemperatureCelsius: Bool!
+    
+    //MARK: - LocationModel
+    var locationModel: LocationViewModel!
+    var weatherDataService: WeatherDataService!
+
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        locationModel = LocationViewModel(delegate: self, delegateData: self)
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        let userDefault: NSUserDefaults = NSUserDefaults.standardUserDefaults()
-        userTemperatureCelsius = userDefault.boolForKey("celsius")
+        let defaults: NSUserDefaults = NSUserDefaults.standardUserDefaults()
+        userTemperatureCelsius = defaults.boolForKey("celsius")
         print("defaults: celsius  = \(userTemperatureCelsius)")
-        swipeRec.addTarget(self, action: "swipedView")
-        swipeRec.direction = UISwipeGestureRecognizerDirection.Down
-        swipeView.addGestureRecognizer(swipeRec)
+        let swipeDown = UISwipeGestureRecognizer(target: self, action: "swipedView:")
+        swipeDown.direction = UISwipeGestureRecognizerDirection.Down
+        self.view.addGestureRecognizer(swipeDown)
         //Refresh
         refresh()
     }
     
-    func swipedView(){
+    func swipedView(gesture: UIGestureRecognizer){
         self.swooshSound()
         refresh()
+    }
+    
+    override func prefersStatusBarHidden() -> Bool {
+        return true
     }
 
     override func didReceiveMemoryWarning() {
@@ -101,8 +114,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 //MARK: - Refresh
 extension ViewController{
     func refresh() {
-        
-//        initLocationManager()
+
+        locationModel.initLocationManager(self)
         
         self.temperatureLabel.alpha = 0
         self.dayOneWeekDayImage.alpha = 0
@@ -278,7 +291,7 @@ extension ViewController{
 //MARK: - Voice
 extension ViewController{
     func swooshSound(){
-        let alertSound = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("swoosh", ofType: "wav", inDirectory: "Voice")!)
+        let alertSound = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("swoosh", ofType: "wav")!)
         do{
             audioPlayer = try AVAudioPlayer(contentsOfURL: alertSound)
         }catch let errorOther as NSError{
@@ -294,6 +307,17 @@ extension ViewController{
 extension ViewController: LocationViewDelegate{
     func displayLocationInfo(locality: String, administrativeArea: String){
         self.userLocationLabel.text = "\(locality), \(administrativeArea)"
+    }
+}
+
+//MARK: - Service Weather
+extension ViewController: WeatherDataDelegate{
+    func show(currentWeather: CurrentViewModel, weeklyWeather: WeatherViewModel, alertWeather: WeatherAlertsView){
+        if self.userTemperatureCelsius == true{
+            self.temperatureLabel.text = "\(currentWeather.current.temperature)"
+        }else{
+            self.temperatureLabel.text = "\(currentWeather.current.temperature)"
+        }
     }
 }
 

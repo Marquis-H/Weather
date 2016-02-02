@@ -13,8 +13,10 @@ struct WeatherAlertsView {
     var userAlert: String
     
     init (weatherDictionary: NSDictionary){
-        if let WeatherAlerts = (weatherDictionary["result"] as! NSArray!){
-            userAlert = WeatherAlerts[0]["pm25"]!!["pm25"]!!["des"] as! String
+        if let result = (weatherDictionary["result"] as! NSDictionary!){
+            let pm = result["pm25"] as! NSDictionary
+            let pm25 = pm["pm25"] as! NSDictionary
+            userAlert = pm25["des"] as! String
         }else{
             userAlert = ""
         }

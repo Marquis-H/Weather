@@ -15,6 +15,10 @@
 		953DADE11C5B4484009A478B /* WeatherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953DADE01C5B4484009A478B /* WeatherTests.swift */; };
 		953DADEC1C5B4484009A478B /* WeatherUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953DADEB1C5B4484009A478B /* WeatherUITests.swift */; };
 		953DADFA1C5B44EE009A478B /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 953DADF91C5B44EE009A478B /* CoreLocation.framework */; };
+		956BC82E1C6071590005591B /* WeatherDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956BC82D1C6071590005591B /* WeatherDataService.swift */; };
+		956BC8321C60C2710005591B /* popit.wav in Resources */ = {isa = PBXBuildFile; fileRef = 956BC82F1C60C2710005591B /* popit.wav */; };
+		956BC8331C60C2710005591B /* swoosh.wav in Resources */ = {isa = PBXBuildFile; fileRef = 956BC8301C60C2710005591B /* swoosh.wav */; };
+		956BC8341C60C2710005591B /* Squeaky Creaky.wav in Resources */ = {isa = PBXBuildFile; fileRef = 956BC8311C60C2710005591B /* Squeaky Creaky.wav */; };
 		9586E2571C5CEC5200B76FF0 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9586E2561C5CEC5200B76FF0 /* AppConfig.swift */; };
 		9586E25B1C5CF54000B76FF0 /* Current.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9586E25A1C5CF54000B76FF0 /* Current.swift */; };
 		9586E25E1C5CF90200B76FF0 /* WeatherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9586E25D1C5CF90200B76FF0 /* WeatherViewModel.swift */; };
@@ -23,7 +27,6 @@
 		9586E2641C5E41EC00B76FF0 /* SpringAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9586E2631C5E41EC00B76FF0 /* SpringAnimationView.swift */; };
 		95D8B44C1C5F037B0060ED5F /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95D8B44B1C5F037B0060ED5F /* Location.swift */; };
 		95D8B44E1C5F0ED90060ED5F /* LocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95D8B44D1C5F0ED90060ED5F /* LocationViewModel.swift */; };
-		95D8B4501C5F5F840060ED5F /* WeatherData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95D8B44F1C5F5F840060ED5F /* WeatherData.swift */; };
 		95D8B4521C5F60E90060ED5F /* WeatherAlertsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95D8B4511C5F60E90060ED5F /* WeatherAlertsView.swift */; };
 /* End PBXBuildFile section */
 
@@ -59,6 +62,10 @@
 		953DADEB1C5B4484009A478B /* WeatherUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherUITests.swift; sourceTree = "<group>"; };
 		953DADED1C5B4484009A478B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		953DADF91C5B44EE009A478B /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		956BC82D1C6071590005591B /* WeatherDataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherDataService.swift; sourceTree = "<group>"; };
+		956BC82F1C60C2710005591B /* popit.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = popit.wav; sourceTree = "<group>"; };
+		956BC8301C60C2710005591B /* swoosh.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = swoosh.wav; sourceTree = "<group>"; };
+		956BC8311C60C2710005591B /* Squeaky Creaky.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "Squeaky Creaky.wav"; sourceTree = "<group>"; };
 		9586E2561C5CEC5200B76FF0 /* AppConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
 		9586E25A1C5CF54000B76FF0 /* Current.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Current.swift; sourceTree = "<group>"; };
 		9586E25D1C5CF90200B76FF0 /* WeatherViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherViewModel.swift; sourceTree = "<group>"; };
@@ -67,7 +74,6 @@
 		9586E2631C5E41EC00B76FF0 /* SpringAnimationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpringAnimationView.swift; sourceTree = "<group>"; };
 		95D8B44B1C5F037B0060ED5F /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		95D8B44D1C5F0ED90060ED5F /* LocationViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationViewModel.swift; sourceTree = "<group>"; };
-		95D8B44F1C5F5F840060ED5F /* WeatherData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherData.swift; sourceTree = "<group>"; };
 		95D8B4511C5F60E90060ED5F /* WeatherAlertsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherAlertsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -121,7 +127,11 @@
 		953DADCA1C5B4484009A478B /* Weather */ = {
 			isa = PBXGroup;
 			children = (
+				956BC82F1C60C2710005591B /* popit.wav */,
+				956BC8301C60C2710005591B /* swoosh.wav */,
+				956BC8311C60C2710005591B /* Squeaky Creaky.wav */,
 				953DADCB1C5B4484009A478B /* AppDelegate.swift */,
+				956BC82C1C60712E0005591B /* Service */,
 				9586E25C1C5CF84900B76FF0 /* ViewModel */,
 				9586E2591C5CF4E200B76FF0 /* Model */,
 				9586E2551C5CEC1500B76FF0 /* Config */,
@@ -149,6 +159,14 @@
 				953DADED1C5B4484009A478B /* Info.plist */,
 			);
 			path = WeatherUITests;
+			sourceTree = "<group>";
+		};
+		956BC82C1C60712E0005591B /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				956BC82D1C6071590005591B /* WeatherDataService.swift */,
+			);
+			name = Service;
 			sourceTree = "<group>";
 		};
 		9586E2521C5CEB4600B76FF0 /* View */ = {
@@ -200,7 +218,6 @@
 				9586E25A1C5CF54000B76FF0 /* Current.swift */,
 				9586E25F1C5CFAD900B76FF0 /* Weekly.swift */,
 				95D8B44B1C5F037B0060ED5F /* Location.swift */,
-				95D8B44F1C5F5F840060ED5F /* WeatherData.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -321,8 +338,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				953DADD61C5B4484009A478B /* LaunchScreen.storyboard in Resources */,
+				956BC8321C60C2710005591B /* popit.wav in Resources */,
 				953DADD31C5B4484009A478B /* Assets.xcassets in Resources */,
 				953DADD11C5B4484009A478B /* Main.storyboard in Resources */,
+				956BC8341C60C2710005591B /* Squeaky Creaky.wav in Resources */,
+				956BC8331C60C2710005591B /* swoosh.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -353,9 +373,9 @@
 				95D8B44E1C5F0ED90060ED5F /* LocationViewModel.swift in Sources */,
 				9586E2641C5E41EC00B76FF0 /* SpringAnimationView.swift in Sources */,
 				95D8B4521C5F60E90060ED5F /* WeatherAlertsView.swift in Sources */,
-				95D8B4501C5F5F840060ED5F /* WeatherData.swift in Sources */,
 				95D8B44C1C5F037B0060ED5F /* Location.swift in Sources */,
 				9586E2601C5CFAD900B76FF0 /* Weekly.swift in Sources */,
+				956BC82E1C6071590005591B /* WeatherDataService.swift in Sources */,
 				9586E25E1C5CF90200B76FF0 /* WeatherViewModel.swift in Sources */,
 				953DADCC1C5B4484009A478B /* AppDelegate.swift in Sources */,
 				9586E25B1C5CF54000B76FF0 /* Current.swift in Sources */,

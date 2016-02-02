@@ -12,12 +12,15 @@ import CoreLocation
 public class LocationViewModel{
     
     weak var delegate: LocationViewDelegate?
+    weak var delegateData: WeatherDataDelegate?
     var location: Location = Location()
-    init(delegate: LocationViewDelegate, locationDelegate: CLLocationManagerDelegate){
+    var weatherData: WeatherDataService?
+    init(delegate: LocationViewDelegate, delegateData: WeatherDataDelegate){
         self.delegate = delegate
-        self.initLocationManager(delegate, locationDelegate: locationDelegate)
+        self.delegateData = delegateData
     }
-    func initLocationManager(delegate: LocationViewDelegate, locationDelegate: CLLocationManagerDelegate){
+    
+    func initLocationManager(locationDelegate: CLLocationManagerDelegate){
         location.seenError = false
         location.locationFixAchieved = false
         location.locationManager = CLLocationManager()
@@ -32,6 +35,7 @@ public class LocationViewModel{
 //MARK: - locationManager
 extension LocationViewModel{
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]){
+        print(123123)
         CLGeocoder().reverseGeocodeLocation(manager.location!, completionHandler: {(placemarks, error)->Void in
             self.displayLocationInfo(placemarks![0])
         })
@@ -45,8 +49,10 @@ extension LocationViewModel{
             location.userLongitude = coord.longitude
             //MARK - Get City
             self.lonLatToCity()
-            
+            print(234)
             //TODO MARK GET CURRENT WEATHER DATA
+            weatherData = WeatherDataService(delegate: self.delegateData!)
+            weatherData?.getWeatherData()
         }
     }
     
