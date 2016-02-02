@@ -446,6 +446,7 @@
                         <outlet property="wAlerts" destination="Fg6-uY-vKt" id="OuN-bS-0ud"/>
                         <outlet property="windBag" destination="d59-36-ib0" id="5uC-tB-f19"/>
                         <outlet property="windSpeedLabel" destination="Gcv-Ie-6dh" id="eL2-lW-9gy"/>
+                        <outlet property="windUILabel" destination="eCp-v9-0bv" id="WiT-ts-gkg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
