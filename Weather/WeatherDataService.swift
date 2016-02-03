@@ -10,16 +10,16 @@ import Foundation
 
 public class WeatherDataService {
     
-    var location: Location?
-    var baseURL = NSURL(string: weatherApi)
+    var location: Location = Location()
+    var baseURL = NSString(string: weatherApi)
     let forecastURL: NSURL?
     let sharedSession: NSURLSession?
     
     weak var delegate: WeatherDataDelegate?
     
-    init (delegate: WeatherDataDelegate){
+    init (delegate: WeatherDataDelegate, userCity: String){
         self.delegate = delegate
-        self.forecastURL = NSURL(string: "\(location!.userCity)", relativeToURL:baseURL)
+        self.forecastURL = NSURL(string: (baseURL as String)+"\(userCity.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())!)")
         self.sharedSession = NSURLSession.sharedSession()
     }
     
