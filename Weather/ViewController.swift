@@ -115,7 +115,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 extension ViewController{
     func refresh() {
 
-        locationModel.initLocationManager(self)
+        locationModel.initLocationManager()
         
         self.temperatureLabel.alpha = 0
         self.dayOneWeekDayImage.alpha = 0
@@ -314,10 +314,54 @@ extension ViewController: LocationViewDelegate{
 extension ViewController: WeatherDataDelegate{
     func show(currentWeather: CurrentViewModel, weeklyWeather: WeatherViewModel, alertWeather: WeatherAlertsView){
         if self.userTemperatureCelsius == true{
-            self.temperatureLabel.text = "\(currentWeather.current.temperature)"
+             //MARK - Celsius
         }else{
-            self.temperatureLabel.text = "\(currentWeather.current.temperature)"
+            self.temperatureLabel.text = "\(currentWeather.current.temperature!)"
         }
+        self.iconView.image = currentWeather.current.icon
+        self.windSpeedLabel.text = "\(currentWeather.current.windSpeed!)"
+        self.pmAmount.text = "\(currentWeather.current.pm!)"
+        self.humidityAmount.text = "\(currentWeather.current.humidity!)"
+        self.summaryLabel.text = "\(currentWeather.current.summary)"
+        
+        if self.userTemperatureCelsius == true{
+            //MARK - Celsius
+        }else{
+            self.dayCurrentTemperatureHigh.text = "\(weeklyWeather.weekly.dayCurrentTemperatureMax!)"
+            self.dayCurrentTemperatureLow.text = "\(weeklyWeather.weekly.dayCurrentTemperatureMin!)"
+        }
+        //MARK - Weekly
+        if self.userTemperatureCelsius == true{
+             //MARK - Celsius
+        }else{
+            self.dayOneLowHigh.text = "\(weeklyWeather.weekly.dayOneTemperatureMin!)°~\(weeklyWeather.weekly.dayOneTemperatureMax!)°"
+            self.dayTwoLowHigh.text = "\(weeklyWeather.weekly.dayTwoTemperatureMin!)°~\(weeklyWeather.weekly.dayTwoTemperatureMax!)°"
+            self.dayThreeLowHigh.text = "\(weeklyWeather.weekly.dayThreeTemperatureMin!)°~\(weeklyWeather.weekly.dayThreeTemperatureMax!)°"
+            self.dayFourLowHigh.text = "\(weeklyWeather.weekly.dayFourTemperatureMin!)°~\(weeklyWeather.weekly.dayFourTemperatureMax!)°"
+            self.dayFiveLowHigh.text = "\(weeklyWeather.weekly.dayFiveTemperatureMin!)°~\(weeklyWeather.weekly.dayFiveTemperatureMax!)°"
+            self.daySixLowHigh.text = "\(weeklyWeather.weekly.daySixTemperatureMin!)°~\(weeklyWeather.weekly.daySixTemperatureMax!)°"
+        }
+        self.dayOneWeekDayLabel.text = "\(weeklyWeather.weekly.dayOneTime!)"
+        self.dayOneWeekDayImage.image = weeklyWeather.weekly.dayOneIcon!
+        
+        self.dayTwoWeekDayLabel.text = "\(weeklyWeather.weekly.dayTwoTime!)"
+        self.dayTwoWeekDayImage.image = weeklyWeather.weekly.dayTwoIcon!
+        
+        self.dayThreeWeekDayLabel.text = "\(weeklyWeather.weekly.dayThreeTime!)"
+        self.dayThreeWeekDayImage.image = weeklyWeather.weekly.dayThreeIcon!
+        
+        self.dayFourWeekDayLabel.text = "\(weeklyWeather.weekly.dayFourTime!)"
+        self.dayFourWeekDayImage.image = weeklyWeather.weekly.dayFourIcon!
+        
+        self.dayFiveWeekDayLabel.text = "\(weeklyWeather.weekly.dayFiveTime!)"
+        self.dayFiveWeekDayImage.image = weeklyWeather.weekly.dayFiveIcon!
+        
+        self.daySixWeekDayLabel.text = "\(weeklyWeather.weekly.daySixTime!)"
+        self.daySixWeekDayImage.image = weeklyWeather.weekly.daySixIcon!
+        
+        //MARK - Weather Alerts
+        
+        self.wAlerts.text = "\(alertWeather.userAlert)"
     }
 }
 
