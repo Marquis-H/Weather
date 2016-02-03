@@ -25,26 +25,6 @@
                                 <color key="textColor" red="0.70196078429999997" green="0.74509803919999995" blue="0.76078431369999999" alpha="0.5" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zmz-HZ-9kl" userLabel="Swipe View">
-                                <rect key="frame" x="28" y="0.0" width="321" height="667"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fg6-uY-vKt" userLabel="WAlert">
-                                        <rect key="frame" x="8" y="494" width="305" height="43"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="43" id="IOd-aJ-pkZ"/>
-                                            <constraint firstAttribute="width" constant="305" id="NHM-Xn-xr4"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="0.70196078429999997" green="0.74509803919999995" blue="0.76078431369999999" alpha="0.5" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="Fg6-uY-vKt" secondAttribute="bottom" constant="130" id="ZIH-Or-sor"/>
-                                    <constraint firstItem="Fg6-uY-vKt" firstAttribute="leading" secondItem="Zmz-HZ-9kl" secondAttribute="leadingMargin" placeholder="YES" id="m19-cF-Ni5"/>
-                                    <constraint firstItem="Fg6-uY-vKt" firstAttribute="trailing" secondItem="Zmz-HZ-9kl" secondAttribute="trailingMargin" id="pOD-pb-KL1"/>
-                                </constraints>
-                            </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="clear-day" translatesAutoresizingMaskIntoConstraints="NO" id="ODz-dm-HiV" userLabel="Icon View">
                                 <rect key="frame" x="55" y="68" width="80" height="80"/>
                                 <constraints>
@@ -66,7 +46,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="135" id="Phl-O1-mri"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="130"/>
                                 <color key="textColor" red="0.70196078429999997" green="0.74509803919999995" blue="0.76078431369999999" alpha="0.5" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -302,6 +282,26 @@
                                 <color key="textColor" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zmz-HZ-9kl" userLabel="Swipe View">
+                                <rect key="frame" x="28" y="0.0" width="320" height="667"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fg6-uY-vKt" userLabel="WAlert">
+                                        <rect key="frame" x="8" y="478" width="304" height="59"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="59" id="IOd-aJ-pkZ"/>
+                                            <constraint firstAttribute="width" constant="304" id="NHM-Xn-xr4"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
+                                        <color key="textColor" red="0.70196078429999997" green="0.74509803919999995" blue="0.76078431369999999" alpha="0.5" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="Fg6-uY-vKt" secondAttribute="bottom" constant="130" id="ZIH-Or-sor"/>
+                                    <constraint firstItem="Fg6-uY-vKt" firstAttribute="leading" secondItem="Zmz-HZ-9kl" secondAttribute="leadingMargin" id="m19-cF-Ni5"/>
+                                    <constraint firstItem="Fg6-uY-vKt" firstAttribute="trailing" secondItem="Zmz-HZ-9kl" secondAttribute="trailingMargin" id="pOD-pb-KL1"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
