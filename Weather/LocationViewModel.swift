@@ -9,7 +9,7 @@
 import Foundation
 import CoreLocation
 
-public class LocationViewModel{
+public class LocationViewModel: NSObject, CLLocationManagerDelegate {
     
     weak var delegate: LocationViewDelegate?
     weak var delegateData: WeatherDataDelegate?
@@ -20,11 +20,11 @@ public class LocationViewModel{
         self.delegateData = delegateData
     }
     
-    func initLocationManager(locationDelegate: CLLocationManagerDelegate){
+    func initLocationManager(){
         location.seenError = false
         location.locationFixAchieved = false
         location.locationManager = CLLocationManager()
-        location.locationManager.delegate = locationDelegate
+        location.locationManager.delegate = self
         location.locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
         location.locationManager.requestAlwaysAuthorization()
         location.locationManager.startUpdatingLocation()
@@ -34,26 +34,25 @@ public class LocationViewModel{
 
 //MARK: - locationManager
 extension LocationViewModel{
-    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]){
-        print(123123)
+    public func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]){
         CLGeocoder().reverseGeocodeLocation(manager.location!, completionHandler: {(placemarks, error)->Void in
             self.displayLocationInfo(placemarks![0])
+            if self.location.locationFixAchieved == false{
+                self.location.locationFixAchieved = true
+                let locationArray = locations as NSArray
+                self.location.currLocation = locations.last
+                let locationObj = locationArray.lastObject as! CLLocation
+                let coord = locationObj.coordinate
+                self.location.userLatitude = coord.latitude
+                self.location.userLongitude = coord.longitude
+                //MARK - Get City
+                //self.lonLatToCity()
+                
+                //TODO MARK GET CURRENT WEATHER DATA
+                self.weatherData = WeatherDataService(delegate: self.delegateData!, userCity: self.location.userCity!)
+                self.weatherData?.getWeatherData()
+            }
         })
-        if location.locationFixAchieved == false{
-            location.locationFixAchieved = true
-            let locationArray = locations as NSArray
-            location.currLocation = locations.last
-            let locationObj = locationArray.lastObject as! CLLocation
-            let coord = locationObj.coordinate
-            location.userLatitude = coord.latitude
-            location.userLongitude = coord.longitude
-            //MARK - Get City
-            self.lonLatToCity()
-            print(234)
-            //TODO MARK GET CURRENT WEATHER DATA
-            weatherData = WeatherDataService(delegate: self.delegateData!)
-            weatherData?.getWeatherData()
-        }
     }
     
     func displayLocationInfo(placemark: CLPlacemark?){
@@ -61,17 +60,17 @@ extension LocationViewModel{
             //stop updating location
             location.locationManager.stopUpdatingLocation()
             let locality = (containsPlacemark.locality != nil) ? containsPlacemark.locality : ""
-            let postalCode = (containsPlacemark.postalCode != nil) ? containsPlacemark.postalCode : ""
+            _ = (containsPlacemark.postalCode != nil) ? containsPlacemark.postalCode : ""
             let administrativeArea = (containsPlacemark.administrativeArea != nil) ? containsPlacemark.administrativeArea : ""
-            let country = (containsPlacemark.country != nil) ? containsPlacemark.country : ""
+            _ = (containsPlacemark.country != nil) ? containsPlacemark.country : ""
+            location.userCity = locality!.stringByReplacingOccurrencesOfString("市", withString: "")
             
-            print(country)
-            print(postalCode)
+//            print(postalCode)
             delegate?.displayLocationInfo(locality!, administrativeArea: administrativeArea!)
         }
     }
     
-    func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus){
+    public func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus){
         var shouldIAllow = false
         
         switch status{
@@ -104,6 +103,8 @@ extension LocationViewModel{
                 //city
                 let city = (mark.addressDictionary! as NSDictionary).valueForKey("City") as! String
                 self.location.userCity = city.stringByReplacingOccurrencesOfString("市", withString: "")
+                print(city)
+                print(self.location.userCity)
             }else{
                 NSLog("Error LonLat To City")
             }
