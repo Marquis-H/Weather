@@ -15,7 +15,7 @@ public class CurrentViewModel {
     var current : Current = Current()
     //Mark: - Initialization
     init(weatherDictionary: NSDictionary){
-        initData(self.packageData(weatherDictionary))
+        initData(self.packageData(weatherDictionary["result"] as! NSDictionary))
     }
     
     func initData(weatherDictionary: NSDictionary){
@@ -24,7 +24,7 @@ public class CurrentViewModel {
         current.pm = (weatherDictionary["pm25"] as! Double)
         current.humidity = (weatherDictionary["humidity"] as! Double)
         current.summary = weatherDictionary["summary"] as! String
-        let iconString = weatherDictionary["icon"] as! String
+        let iconString = weatherDictionary["iconString"] as! String
         current.icon = self.weatherIconFromString(iconString)
         current.currentTime = (weatherDictionary["currentTime"] as! String)
     }
@@ -61,13 +61,13 @@ extension CurrentViewModel{
         let wind = realtime["wind"] as! NSDictionary
         
         return [
-            "temperature": weather["temperature"] as! Int,
-            "windSpeed": wind["windspeed"] as! Double,
-            "pm25": pm25["pm25"] as! Double,
-            "humidity": weather["humidity"] as! Double,
+            "temperature": (weather["temperature"] as! NSString).integerValue,
+            "windSpeed": (wind["windspeed"] as! NSString).doubleValue,
+            "pm25": (pm25["pm25"] as! NSString).doubleValue,
+            "humidity": (weather["humidity"] as! NSString).doubleValue,
             "summary": weather["info"] as! String,
-            "iconString": weather["icon"] as! String,
-            "currentTime": weather["dataUptime"] as! String
+            "iconString": weather["img"] as! String,
+            "currentTime": realtime["dataUptime"] as! String
         ]
     }
 }
